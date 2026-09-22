@@ -1,25 +1,19 @@
-# 🩺 Diabetic Foot Ulcer (DFU) AI Detection Studio (OpenCV)
+# 🩺 Diabetic Foot Ulcer (DFU) Detection & Clinical Diagnostic Studio
 
-An AI-powered computer vision desktop application for automated Diabetic Foot Ulcer (DFU) detection, wound localization, and clinical risk stratification using deep convolutional neural networks (**EfficientNetB3**) and a native **OpenCV** graphical user interface.
+An AI-powered clinical decision-support application for automated Diabetic Foot Ulcer (DFU) detection, lesion localization, and risk stratification using deep convolutional neural networks (**EfficientNetB3**) and **Streamlit**.
 
 ---
 
 ## 🌟 Key Features
-- **Pure OpenCV Interface**: Runs as a fast native desktop application with no web server or browser dependencies.
-- **Multi-Image Support**: Native Windows file selection dialog supports selecting single images or multiple photos simultaneously.
-- **Side-by-Side Clinical HUD**:
-  - **Left Canvas**: Patient foot photo annotated with color-coded bounding boxes and attention heatmaps over the wound area.
-  - **Right Canvas**: Real-time diagnostic HUD with class probability distributions and triage recommendations.
-- **3 Diagnostic Categories**:
-  - 🔴 **Diabetic Foot Ulcer (DFU)** (Critical Risk)
-  - 🟢 **Healthy Skin** (Normal Integrity)
-  - 🟡 **Superficial Wound** (Moderate Risk)
-- **Interactive Keyboard Navigation**:
-  - `[N]` or `[→]` : Next Image
-  - `[P]` or `[←]` : Previous Image
-  - `[S]` : Save annotated detection image to `output_detections/`
-  - `[O]` : Open native file dialog to load more images
-  - `[Q]` or `[ESC]` : Close window and exit
+- **Multi-Image & Batch Upload**: Upload single or multiple patient foot images simultaneously.
+- **Deep Learning Classifier**: Powered by fine-tuned **EfficientNetB3** trained on the DFU dataset.
+- **Lesion Localization Overlay**: Generates bounding boxes and attention heatmaps highlighting suspected ulcer sites.
+- **3 Clinical Classes**:
+  - 🚨 **Diabetic Foot Ulcer (DFU)** (Critical chronic ulceration)
+  - ⚠️ **Superficial Wound** (Moderate risk abrasion)
+  - ✅ **Healthy Skin** (Normal epithelial integrity)
+- **Clinical Triage Protocols**: Actionable medical guidelines including pressure offloading (Total Contact Casting) and infection surveillance.
+- **Export Diagnostic Reports**: Download consolidated patient examination summaries in JSON.
 
 ---
 
@@ -29,23 +23,55 @@ An AI-powered computer vision desktop application for automated Diabetic Foot Ul
    ```bash
    git clone https://github.com/SrivatsanMK/Diabetic-Foot-Ulcer-Detection.git
    cd Diabetic-Foot-Ulcer-Detection
-   ```
-
+    ```
 2. **Create and activate a virtual environment:**
-   ```bash
-   python -m venv dfuenv
-   # Windows:
-   .\dfuenv\Scripts\activate
-   # Linux/Mac:
-   source dfuenv/bin/activate
-   ```
+    ```bash
+    python -m venv dfuenv
+    # Windows:
+    .\dfuenv\Scripts\activate
+    # Linux/Mac:
+    source dfuenv/bin/activate
+    ```
 
 3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-4. **Launch the Application:**
-   ```bash
-   python app.py
-   ```
+4. **Run the application:**
+    ```bash
+    streamlit run app.py
+    ```
+
+
+---
+
+## 5. Step-by-Step Commands to Push to GitHub
+
+Open **PowerShell** or **Command Prompt** and execute the following commands in order:
+
+```powershell
+# 1. Navigate to your project directory
+cd "d:\My Project\Diabetic Foot Ulcer Disease"
+
+# 2. Initialize git repository (if not already done)
+git init
+
+# 3. Check what git sees (ensure dfuenv/ and dataset are NOT listed)
+git status
+
+# 4. Stage all tracked files
+git add .
+
+# 5. Commit your files
+git commit -m "Initial commit: Diabetic Foot Ulcer Detection workflow with Streamlit UI and EfficientNetB3"
+
+# 6. Set default branch to main
+git branch -M main
+
+# 7. Link your GitHub remote repository
+git remote remove origin 2>$null
+git remote add origin https://github.com/SrivatsanMK/Diabetic-Foot-Ulcer-Detection.git
+
+# 8. Push to GitHub
+git push -u origin main
