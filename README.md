@@ -1,77 +1,65 @@
-# 🩺 Diabetic Foot Ulcer (DFU) Detection & Clinical Diagnostic Studio
+# 🩺 Diabetic Foot Ulcer (DFU) Detection Studio
 
-An AI-powered clinical decision-support application for automated Diabetic Foot Ulcer (DFU) detection, lesion localization, and risk stratification using deep convolutional neural networks (**EfficientNetB3**) and **Streamlit**.
-
----
-
-## 🌟 Key Features
-- **Multi-Image & Batch Upload**: Upload single or multiple patient foot images simultaneously.
-- **Deep Learning Classifier**: Powered by fine-tuned **EfficientNetB3** trained on the DFU dataset.
-- **Lesion Localization Overlay**: Generates bounding boxes and attention heatmaps highlighting suspected ulcer sites.
-- **3 Clinical Classes**:
-  - 🚨 **Diabetic Foot Ulcer (DFU)** (Critical chronic ulceration)
-  - ⚠️ **Superficial Wound** (Moderate risk abrasion)
-  - ✅ **Healthy Skin** (Normal epithelial integrity)
-- **Clinical Triage Protocols**: Actionable medical guidelines including pressure offloading (Total Contact Casting) and infection surveillance.
-- **Export Diagnostic Reports**: Download consolidated patient examination summaries in JSON.
+An AI-powered clinical decision-support application for automated Diabetic Foot Ulcer (DFU) classification, lesion localization, and triage using **EfficientNetB3** and **Streamlit**.
 
 ---
 
-## 🛠️ Installation & Setup
+## 🌟 Features
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/SrivatsanMK/Diabetic-Foot-Ulcer-Detection.git
-   cd Diabetic-Foot-Ulcer-Detection
-    ```
-2. **Create and activate a virtual environment:**
-    ```bash
-    python -m venv dfuenv
-    # Windows:
-    .\dfuenv\Scripts\activate
-    # Linux/Mac:
-    source dfuenv/bin/activate
-    ```
-
-3. **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. **Run the application:**
-    ```bash
-    streamlit run app.py
-    ```
-
+- **Multi-Image & Benchmark Intake**: Upload patient foot images or load pre-curated test cases with one click.
+- **EfficientNetB3 Classifier**: High-precision classification across 3 diagnostic classes:
+  - 🚨 **Diabetic Foot Ulcer (DFU)**: Critical chronic ulceration requiring immediate attention.
+  - ⚠️ **Superficial Wound**: Moderate risk abrasion requiring monitoring.
+  - ✅ **Healthy Skin**: Intact skin integrity.
+- **Lesion Localization**: Automated bounding box and heatmap overlay highlighting suspected ulcer sites.
+- **Executive KPI Dashboard**: Live summary cards showing total cases evaluated and triage breakdowns.
+- **Side-by-Side Deep-Dive**: Comparative view of baseline photo vs. AI detection overlay with confidence breakdowns and clinical protocols.
+- **Report Export**: Download diagnostic summaries in **CSV** and **JSON** formats.
 
 ---
 
-## 5. Step-by-Step Commands to Push to GitHub
+## 📁 Project Structure
 
-Open **PowerShell** or **Command Prompt** and execute the following commands in order:
+```text
+Diabetic-Foot-Ulcer-Detection/
+├── Model/
+│   └── dfu_best_model.keras                 # Trained EfficientNetB3 model weights
+├── Real World Testing/                      # Sample benchmark images for testing
+├── Notebook/
+│   └── Diabetic_Foot_Ulcer_Detection.ipynb  # Model training notebook
+├── app.py                                   # Streamlit application
+├── requirements.txt                         # Dependencies
+├── .gitignore                               # Git ignore rules
+└── README.md                                # Project documentation
+```
+
+---
+
+## 🛠️ How to Run
+
+### 1. Activate Virtual Environment
+```powershell
+.\dfuenv\Scripts\activate
+```
+
+### 2. Install Dependencies
+```powershell
+pip install -r requirements.txt
+```
+
+### 3. Launch the Application
+```powershell
+streamlit run app.py
+```
+
+Access the app at `http://localhost:8501`.
+
+---
+
+## 🚀 Push to GitHub
 
 ```powershell
-# 1. Navigate to your project directory
-cd "d:\My Project\Diabetic Foot Ulcer Disease"
-
-# 2. Initialize git repository (if not already done)
-git init
-
-# 3. Check what git sees (ensure dfuenv/ and dataset are NOT listed)
-git status
-
-# 4. Stage all tracked files
 git add .
-
-# 5. Commit your files
-git commit -m "Initial commit: Diabetic Foot Ulcer Detection workflow with Streamlit UI and EfficientNetB3"
-
-# 6. Set default branch to main
-git branch -M main
-
-# 7. Link your GitHub remote repository
-git remote remove origin 2>$null
-git remote add origin https://github.com/SrivatsanMK/Diabetic-Foot-Ulcer-Detection.git
-
-# 8. Push to GitHub
+git commit -m "Update DFU detection app with professional Streamlit UI"
 git push -u origin main
+```
